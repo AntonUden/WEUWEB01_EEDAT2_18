@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src="./jquery-3.4.1.min.js"></script>
+        <script>
+            var start = 0;
+
+            $(function() {
+                $('#btn_load').on('click', function() {
+                    let src = './img/' + encodeURIComponent($('#imageSelector').val());
+                    
+                    // Prevent cache
+                    src = src + '?t=' + Math.round(Math.random() * 100000);
+                    
+                    console.log(src);
+
+                    $('#img').remove();
+                    
+                    $('#imgContainer').append($('<img>').attr('id', 'img').attr('src', src).on('load', function() {
+                        let end = new Date();
+                        let loadTime = end - start;
+                        console.log(loadTime);
+                        $('#s_loadTime').text(loadTime);
+                    }));
+                    start = new Date();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <select id="imageSelector">
+            <option value="DJI_0151_100%.jpg">DJI_0151_100%.jpg</option>
+            <option value="DJI_0151_75%.jpg">DJI_0151_75%.jpg</option>
+            <option value="DJI_0151_50%.jpg">DJI_0151_50%.jpg</option>
+            <option value="DJI_0151_25%.jpg">DJI_0151_25%.jpg</option>
+            <option value="DJI_0151_10%.jpg">DJI_0151_10%.jpg</option>
+        </select>
+
+        <button id="btn_load">Load</button>
+        
+        Load time: <span id="s_loadTime">0</span> ms
+
+        <br>
+
+        <div id="imgContainer"></div>
+    </body>
+</html>
