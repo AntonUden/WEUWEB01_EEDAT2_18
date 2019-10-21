@@ -1,0 +1,13 @@
+.bold {
+    font-weight: bold;
+}
+
+body {
+    background-color: #0394fc;
+}
+
+#recipe-image {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

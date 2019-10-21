@@ -1,0 +1,12 @@
+body {
+    background-color: gray;
+}
+
+#text_box {
+    background-color: white;
+    display: inline-block;
+    margin: 25px 25px 25px 25px;
+    padding: 25px 25px 25px 25px;
+    width: 250px;
+    border: 1px solid black;
+}
