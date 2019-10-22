@@ -1,12 +1,25 @@
 body {
-    background-color: gray;
+    margin: 0px 0px 0px 0px;
 }
 
-#text_box {
-    background-color: white;
-    display: inline-block;
-    margin: 25px 25px 25px 25px;
-    padding: 25px 25px 25px 25px;
-    width: 250px;
-    border: 1px solid black;
+#page {
+    display: block;
+    background-color: gray;
+    margin: 0px 10px 0px 10px;
+    width: 100%;
+}
+
+#content {
+    display: block;
+    background-color: lightgrey;
+    margin: 0px 25px 0px 25px;
+}
+
+.div-p {
+    display: block;
+    margin: 0px 25px 0px 25px;
+}
+
+hr {
+    border-top:3px dotted #000;
 }
