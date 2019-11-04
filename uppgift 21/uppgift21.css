@@ -1,23 +1,16 @@
 body {
-    margin: 0px 0px 0px 0px;
-}
-
-#page {
-    display: block;
     background-color: gray;
-    margin: 0px 10px 0px 10px;
-    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 #content {
     display: block;
     background-color: lightgrey;
-    margin: 0px 25px 0px 25px;
-}
-
-.div-p {
-    display: block;
-    margin: 0px 25px 0px 25px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 50px;
+    height: 100vh;
 }
 
 hr {
