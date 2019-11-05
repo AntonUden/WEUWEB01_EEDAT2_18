@@ -1,9 +1,9 @@
 #box1 {
-  display: inline-block;
+  display: block;
   background-image: linear-gradient(#dd304c, #69363b, #dd304c);
-  width: 280px;
-
-  padding: 20px 20px 20px 20px;
+  width: 260px;
+  padding: 0px 20px 0px 20px;
+  float: right;
 }
 
 #header {
@@ -12,37 +12,64 @@
   display: inline-block;
   text-align: center;
   padding-bottom: 0px;
+
+  padding: 0px 20px 0px 20px;
+}
+
+#header h1 {
+  font-family: "Verdana";
 }
 
 #header p {
   font-size: 20px;
+  margin-top: 10px;
   margin-bottom: 0px;
 }
 
-#header h1 {
-    display: inline-block;
-    font-weight: bolder !important;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.content-box h1, .content-box h2, .content-box h3 {
+  font-family: "Arial Black";
+  margin: 0px 0px 0px 0px;
 }
 
-#header h2 {
-    display: inline-block;
-    font-weight: bolder !important;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.h2-sm {
+  font-size: 22px;
+}
+
+.sun {
+  display: inline-block;
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+  background-size: cover;
+  background-image: url('./icon.png');
+}
+
+.small-text {
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
+.days {
+  font-size: 12px;
+}
+
+.spacer {
+  display: inline-block;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .date {
-    font-size: 32px;
-    font-weight: bolder;
+  display: inline-block;
+  margin-top: 0px;
 }
 
 .price {
-    float: right;
-    color: orangered;
-    font-size: 32px;
-    font-weight: 900;
+  display: block;
+  float: right;
+  color: orangered;
+  margin-top: 0px;
 }
 
 .content-box {
@@ -60,22 +87,20 @@
 }
 
 .content-box h1 {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+
+#footer h3 {
+  font-weight: normal;
+  padding-right: 38px;
+  padding-left: 38px;
+  margin-bottom: 0px;
 }
 
 #footer {
   display: block;
   text-align: center;
   color: whitesmoke;
-  font-size: 20px;
-}
-
-/* --- debug only --- */
-div {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-p {
-  background-color: rgba(0, 0, 0, 0.3);
 }
