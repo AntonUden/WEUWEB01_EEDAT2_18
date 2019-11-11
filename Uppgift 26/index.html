@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="./jquery-3.4.1.min.js"></script>
+        <script>
+            function update() {
+                let date = new Date();
+    
+                let hours = (date.getHours() < 10 ? "0" + date.getHours() : date.getHours());
+                let minutes = (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes());
+                let seconds = (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds()); 
+    
+                let day = date.getUTCDate();
+                let month = (date.getUTCMonth() + 1);
+                let year = date.getUTCFullYear();
+    
+                let output = "Klockan är nu " + hours + ":" + minutes + ":" + seconds + "<br>";
+                output += "Datumet är nu " + day + "/" + month + "-" + year + "<br>";
+                output += "&copy; 2019 Company Name";
+
+                $("body").html(output);
+            }
+            
+            $(document).ready(function() {
+                update();
+                setInterval(function() {
+                    update();
+                }, 1000);
+            });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
