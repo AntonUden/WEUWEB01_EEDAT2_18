@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = urldecode($_POST["email"]);
         $phone_number = urldecode($_POST["phone_number"]);
 
-
         if (strlen($firstname) > 0 && strlen($firstname <= 50)) {
             if (strlen($lastname) > 0 && strlen($lastname <= 50)) {
                 if (strlen($email) > 0 && strlen($email <= 255) && filter_var($email, FILTER_VALIDATE_EMAIL)) {

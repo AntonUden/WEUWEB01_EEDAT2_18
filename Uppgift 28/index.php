@@ -2,7 +2,6 @@
 require "./db.php";
 
 $dbc = new DBConnection("uppgift28", "root", "root", "127.0.0.1");
-
 ?>
 
 <!DOCTYPE html>
@@ -59,29 +58,34 @@ $dbc = new DBConnection("uppgift28", "root", "root", "127.0.0.1");
         </script>
     </head>
     <body>
-        <div class="mx-2 ">
+        <div class="mx-2 mt-2">
             <div class="container-inline">
+                <div class="col">
+                    <div class="row">
+                        <img src="./backadal.png">
+                    </div>
+                </div>
                 <div class="col">
                     <div class="row">
                         <form>
                             <div class="form-group">
                                 <label for="userFirstName">Förnamn</label>
-                                <input type="text" id="userFirstName" class="form-control user_input" placeholder="Förnamn">
+                                <input type="text" id="userFirstName" class="form-control user_input" placeholder="Förnamn" maxlength="50">
                             </div>
 
                             <div class="form-group">
                                 <label for="userLastName">Efternamn</label>
-                                <input type="text" id="userLastName" class="form-control user_input" placeholder="Efternamn">
+                                <input type="text" id="userLastName" class="form-control user_input" placeholder="Efternamn" maxlength="50">
                             </div>
 
                             <div class="form-group">
                                 <label for="userEmail">Email</label>
-                                <input type="text" id="userEmail" class="form-control user_input" placeholder="Email">
+                                <input type="text" id="userEmail" class="form-control user_input" placeholder="Email" maxlength="255">
                             </div>
 
                             <div class="form-group">
                                 <label for="userPhoneNumber">Mobil</label>
-                                <input type="text" id="userPhoneNumber" class="form-control user_input" placeholder="Mobil">
+                                <input type="text" id="userPhoneNumber" class="form-control user_input" maxlength="15" placeholder="Mobil">
                             </div>
 
                             <div class="form-group">

@@ -31,7 +31,7 @@ class DBConnection {
         $stmt = $this->pdo->prepare("SELECT * FROM entries");
         if($stmt->execute()) {
             while($r = $stmt->fetch()) {
-                array_push($result, new Entry($r['id'], $r['firstname'], $r['lastname'], $r['email'], $r['phone_number']));
+                array_push($result, new Entry($r['id'], $r['timestamp'], $r['firstname'], $r['lastname'], $r['email'], $r['phone_number']));
             }
         }
 

@@ -20,6 +20,7 @@ $entries = $dbc->getEntries();
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Timestamp</th>
                         <th>Förnamn</th>
                         <th>Efternamn</th>
                         <th>E-post</th>
@@ -30,6 +31,7 @@ $entries = $dbc->getEntries();
                     <?php foreach ($entries as $entry): ?>
                     <tr>
                         <td><?php echo htmlentities($entry->getId()); ?></td>
+                        <td><?php echo htmlentities($entry->getTimestamp()); ?></td>
                         <td><?php echo htmlentities($entry->getFirstName()); ?></td>
                         <td><?php echo htmlentities($entry->getLastName()); ?></td>
                         <td><?php echo htmlentities($entry->getEmail()); ?></td>

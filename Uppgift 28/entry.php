@@ -4,7 +4,8 @@ class Entry {
 	protected $firstname;
 	protected $lastname;
 	protected $email;
-	protected $phone_number;
+    protected $phone_number;
+    protected $timestamp;
     
     function getId() {
         return $this->id;
@@ -25,13 +26,18 @@ class Entry {
     function getPhoneNumber() {
         return $this->phone_number;
     }
+
+    function getTimestamp() {
+        return $this->timestamp;
+    }
 	
-	function __construct($id, $firstname, $lastname, $email, $phone_number) {
-		$this->id = $id;
+	function __construct($id, $timestamp, $firstname, $lastname, $email, $phone_number) {
+        $this->id = $id;
+        $this->timestamp = $timestamp;
 		$this->firstname = $firstname;
 		$this->lastname = $lastname;
 		$this->email = $email;
-		$this->phone_number = $phone_number;
+        $this->phone_number = $phone_number;
 	}
 }
 ?>
