@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./global.css">
+        <link rel="stylesheet" href="./projects.css">
+    </head>
+    
+    <body>
+        <?php require "navbar.php"; ?>
+
+        <div class="mx10px my5px">
+            <?php 
+                $cInit = curl_init();
+                curl_setopt($cInit, CURLOPT_URL, "https://api.github.com/users/Zeeraa/repos?per_page=100");
+                curl_setopt($cInit, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+                curl_setopt($cInit, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($cInit, CURLOPT_SSL_VERIFYPEER, false);
+                
+                $repos = json_decode(curl_exec($cInit));
+            ?>
+
+            <table id="project-table">
+                <thead>
+                    <tr>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Språk</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php foreach ($repos as $repo): ?>
+                    <tr>
+                        <td>
+                            <a href="<?php echo $repo->html_url; ?>" class="repo-link">
+                                <?php echo $repo->name; ?>
+                            </a>
+                        </td>
+
+                        <td>
+                            <?php echo $repo->description; ?>
+                        </td>
+
+                        <td>
+                            <?php echo $repo->language; ?>
+                        </td>
+                    </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
