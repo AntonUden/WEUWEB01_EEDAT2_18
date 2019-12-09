@@ -1,0 +1,43 @@
+.link-img {
+    width: 128px;
+    height: 128px;
+}
+
+.link-box {
+    display: flex;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+.link-box:first-child {
+    border-top: 1px solid #000000;
+}
+
+.link-info {
+    margin-left: 10px;
+    margin-right: 10px;
+    vertical-align:top;
+    display: inline-block;
+}
+
+.link-title a {
+    color: #0000EE !important;
+}
+
+.link-title {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.link-description {
+    overflow: auto;
+    display: table;
+}
+
+.link-icon {
+    display: inline-block;
+    margin: 1px 1px 1px 1px;
+}
+
