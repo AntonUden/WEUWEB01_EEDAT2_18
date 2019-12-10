@@ -23,7 +23,7 @@
                             </a>
                         </div>
                         <div class="link-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi eos cupiditate, a ea error illum cumque excepturi temporibus iste alias voluptatem, eius blanditiis tempore. Omnis corporis non numquam laboriosam consectetur?
+                            wamp web server
                         </div>
                     </div>
                 </div>

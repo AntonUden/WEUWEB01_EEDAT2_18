@@ -8,19 +8,17 @@
         <?php
             $navpage = "projects";
             require "navbar.php";
+
+            $cInit = curl_init();
+            curl_setopt($cInit, CURLOPT_URL, "https://api.github.com/users/Zeeraa/repos?per_page=100");
+            curl_setopt($cInit, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+            curl_setopt($cInit, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($cInit, CURLOPT_SSL_VERIFYPEER, false);
+                
+            $repos = json_decode(curl_exec($cInit));
         ?>
 
         <div class="my5px">
-            <?php 
-                $cInit = curl_init();
-                curl_setopt($cInit, CURLOPT_URL, "https://api.github.com/users/Zeeraa/repos?per_page=100");
-                curl_setopt($cInit, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-                curl_setopt($cInit, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($cInit, CURLOPT_SSL_VERIFYPEER, false);
-                
-                $repos = json_decode(curl_exec($cInit));
-            ?>
-
             <table id="project-table">
                 <thead>
                     <tr>
