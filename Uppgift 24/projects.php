@@ -5,9 +5,12 @@
     </head>
     
     <body>
-        <?php require "navbar.php"; ?>
+        <?php
+            $navpage = "projects";
+            require "navbar.php";
+        ?>
 
-        <div class="mx10px my5px">
+        <div class="my5px">
             <?php 
                 $cInit = curl_init();
                 curl_setopt($cInit, CURLOPT_URL, "https://api.github.com/users/Zeeraa/repos?per_page=100");

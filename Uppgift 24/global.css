@@ -40,6 +40,14 @@ body {
   border-right: none;
 }
 
+.nav-active {
+  background-color: #4CAF50;
+}
+
+.nav-active:hover {
+  background-color: #1C7F20 !important;
+}
+
 .nav-link {
   display: block;
   color: white;

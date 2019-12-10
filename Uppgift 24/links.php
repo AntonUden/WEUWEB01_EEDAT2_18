@@ -5,7 +5,10 @@
     </head>
     
     <body>
-        <?php require "navbar.php"; ?>
+        <?php
+            $navpage = "links";
+            require "navbar.php";
+        ?>
 
         <div class="mx10px my5px">
             <div class="link-list">

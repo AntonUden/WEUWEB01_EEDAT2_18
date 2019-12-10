@@ -4,7 +4,10 @@
     </head>
     
     <body>
-        <?php require "navbar.php"; ?>
+        <?php
+            $navpage = "start";
+            require "navbar.php";
+        ?>
 
         <div class="mx10px my5px">
             <h1>test</h1>
