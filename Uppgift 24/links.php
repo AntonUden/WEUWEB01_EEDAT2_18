@@ -11,6 +11,13 @@
         ?>
 
         <div class="mx10px my5px">
+            <div>
+                <h1>Länkar</h1>
+                <p>
+                    Här finns länkar till några olika användbara program som kan användas för att göra hemsidor
+                </p>
+            </div>
+
             <div class="link-list">
                 <div class="link-box">
                     <div class="link-icon">

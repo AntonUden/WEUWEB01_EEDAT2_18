@@ -13,23 +13,18 @@
     border-right: 1px solid #000000;
 }
 
+.server-players {
+    width: 100%;
+}
+
 table {
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 100%;
     border-collapse: collapse;
 }
 
 table, th, td {
     border: 1px solid black;
-}
-
-.server-online {
-    display: inline-block;
-}
-
-.server-map {
-    display: inline-block;
 }
 
 .server-icon {
@@ -39,4 +34,8 @@ table, th, td {
 .server-icon-img {
     width: auto;
     height: 150px;
+}
+
+#update-button-div {
+    margin-top: 5px;
 }

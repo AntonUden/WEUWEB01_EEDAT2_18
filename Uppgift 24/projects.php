@@ -2,6 +2,7 @@
     <head>
         <link rel="stylesheet" href="./css/global.css">
         <link rel="stylesheet" href="./css/projects.css">
+        <title>Projekt</title>
     </head>
     
     <body>
@@ -19,6 +20,12 @@
         ?>
 
         <div class="my5px">
+            <div class="mx5px">
+                <h1>Projekt</h1>
+                <p>
+                    Länkar till alla mina projekt på <a href="https://github.com/AntonUden">github</a>
+                </p>
+            </div>
             <table id="project-table">
                 <thead>
                     <tr>
