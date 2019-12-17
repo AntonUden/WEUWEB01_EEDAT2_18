@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./global.css">
-        <link rel="stylesheet" href="./links.css">
+        <link rel="stylesheet" href="./css/global.css">
+        <link rel="stylesheet" href="./css/links.css">
     </head>
     
     <body>
@@ -39,7 +39,7 @@
                             </a>
                         </div>
                         <div class="link-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi eos cupiditate, a ea error illum cumque excepturi temporibus iste alias voluptatem, eius blanditiis tempore. Omnis corporis non numquam laboriosam consectetur?
+                            verktyg för att bland annat fjärrstyra serverar via ssh och telnet
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                             </a>
                         </div>
                         <div class="link-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi eos cupiditate, a ea error illum cumque excepturi temporibus iste alias voluptatem, eius blanditiis tempore. Omnis corporis non numquam laboriosam consectetur?
+                            editor med autocomplete som stödjer många olika programmeringsspråk
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./global.css">
-        <link rel="stylesheet" href="./projects.css">
+        <link rel="stylesheet" href="./css/global.css">
+        <link rel="stylesheet" href="./css/projects.css">
     </head>
     
     <body>

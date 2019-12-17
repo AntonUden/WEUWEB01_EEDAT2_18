@@ -1,8 +1,8 @@
 <?php
     $servers = [
-        ["name" => "ARK Valguero", "host" => "zeeraa.xyz", "port" => 27015],
-        ["name" => "ARK Ragnarok", "host" => "zeeraa.xyz", "port" => 27016],
-        ["name" => "ARK Ark Scorched Earth", "host" => "zeeraa.xyz", "port" => 27017]
+        ["name" => "ARK Valguero", "host" => "zeeraa.xyz", "port" => 27015, "icon" => "ark_valguero.jpg"],
+        ["name" => "ARK Ragnarok", "host" => "zeeraa.xyz", "port" => 27016, "icon" => "ark_ragnarok.png"],
+        ["name" => "ARK Ark Scorched Earth", "host" => "zeeraa.xyz", "port" => 27017, "icon" => "ark_scorched_earth.png"]
     ];
 
     require "./SourceQuery/bootstrap.php";
