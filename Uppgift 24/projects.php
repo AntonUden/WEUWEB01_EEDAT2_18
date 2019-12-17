@@ -2,7 +2,6 @@
     <head>
         <link rel="stylesheet" href="./css/global.css">
         <link rel="stylesheet" href="./css/projects.css">
-        <title>Projekt</title>
     </head>
     
     <body>
