@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>
+
+        <link rel="stylesheet" href="./jquery-ui.min.css">
+        <link rel="stylesheet" href="./dragndrop.table.columns.css">
+
+        <script src="./jquery-3.4.1.min.js"></script>
+        <script src="./jquery-ui.min.js"></script>
+        <script src="./dragndrop.table.columns.min.js"></script>
+        <script>
+            let activeElement = null;
+
+            function uuidv4() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            }
+
+            $(function() {
+                setInterval(function() {
+                    if(activeElement != null) {
+                        let time = $("#" + activeElement)[0].currentTime;
+                        //console.log(time);
+                        $(".audio-element").each(function() {
+                            if($(this).attr("id") == activeElement) {
+                                return;
+                            }
+
+                            $(this)[0].currentTime = time;
+                        });
+                    }
+                }, 10);
+
+                $(".audio-col").each(function() {
+                    let audioFile = $(this).data("src");
+
+                    console.log("Loading " + audioFile);
+
+                    $(this).html(
+                        $("<audio></audio>").html(
+                            $("<source></source>").attr("src", audioFile)
+                        ).attr("controls", "1")
+                        .addClass("audio-element")
+                        .on("mouseenter", function() {
+                            $(this)[0].play();
+                            activeElement = $(this).attr("id");
+                            console.log("Active player: " + activeElement);
+                        }).on("mouseleave", function() {
+                            $(this)[0].pause();
+                            activeElement = null;
+                        })
+                        .attr("id", uuidv4())
+                    );
+                });
+
+                $('.table').dragableColumns({
+                    drag: true,
+                    dragClass: 'drag',
+                    overClass: 'over',
+                    movedContainerSelector: '.dnd-moved'
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <table class="table">
+            <thead>
+                <tr class="dnd-moved">
+                    <th></th>
+                    <th>wav</th>
+                    <th>ogg - quality 1</th>
+                    <th>ogg - quality 5</th>
+                    <th>ogg - quality 10</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="dnd-moved">
+                    <th>256kbps</th>
+                    <td class="audio-col" data-src="wav_256kbps.wav"></td>
+                    <td class="audio-col" data-src="ogg_256kbps_q1.ogg"></td>
+                    <td class="audio-col" data-src="ogg_256kbps_q5.ogg"></td>
+                    <td class="audio-col" data-src="ogg_256kbps_q10.ogg"></td>
+                </tr>
+
+                <tr class="dnd-moved">
+                    <th>512kbps</th>
+                    <td class="audio-col" data-src="wav_512kbps.wav"></td>
+                    <td class="audio-col" data-src="ogg_512kbps_q1.ogg"></td>
+                    <td class="audio-col" data-src="ogg_512kbps_q5.ogg"></td>
+                    <td class="audio-col" data-src="ogg_512kbps_q10.ogg"></td>
+                </tr>
+
+                <tr class="dnd-moved">
+                    <th>1024kbps</th>
+                    <td class="audio-col" data-src="wav_1024kbps.wav"></td>
+                    <td class="audio-col" data-src="ogg_1024kbps_q1.ogg"></td>
+                    <td class="audio-col" data-src="ogg_1024kbps_q5.ogg"></td>
+                    <td class="audio-col" data-src="ogg_1024kbps_q10.ogg"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
