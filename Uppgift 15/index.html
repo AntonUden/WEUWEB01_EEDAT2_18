@@ -1,115 +1,100 @@
 <html>
-    <head>
-        <style>
-            table {
-                border-collapse: collapse;
-            }
 
-            table, th, td {
-                border: 1px solid black;
-            }
-        </style>
+<head>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        
+        .flex-container > div {
+            width: auto;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+    </style>
+</head>
 
-        <link rel="stylesheet" href="./jquery-ui.min.css">
-        <link rel="stylesheet" href="./dragndrop.table.columns.css">
+<body>
+    <div class="flex-container">
+        <div>
+            <h3>Original</h3>
+            <audio controls>
+                <source src="./input.wav" type="audio/wav">
+            </audio>
+    
+            <code>
+                <table>
+                    <tr><td colspan="2">General</td></tr>
+                    <tr><td>Complete name</td><td> input.wav</td></tr>
+                    <tr><td>Format</td><td> Wave</td></tr>
+                    <tr><td>File size</td><td> 6.24 MiB</td></tr>
+                    <tr><td>Duration</td><td> 37 s 86 ms</td></tr>
+                    <tr><td>Overall bit rate mode</td><td> Constant</td></tr>
+                    <tr><td>Overall bit rate</td><td> 1 411 kb/s</td></tr>
+    
+                    <tr><td colspan="2">Audio</td></tr>
+                    <tr><td>Format</td><td> PCM</td></tr>
+                    <tr><td>Format settings</td><td> Little / Signed</td></tr>
+                    <tr><td>Codec ID</td><td> 1</td></tr>
+                    <tr><td>Duration</td><td> 37 s 86 ms</td></tr>
+                    <tr><td>Bit rate mode</td><td> Constant</td></tr>
+                    <tr><td>Bit rate</td><td> 1 411.2 kb/s</td></tr>
+                    <tr><td>Channel(s)</td><td> 2 channels</td></tr>
+                    <tr><td>Sampling rate</td><td> 44.1 kHz</td></tr>
+                    <tr><td>Bit depth</td><td> 16 bits</td></tr>
+                    <tr><td>Stream size</td><td> 6.24 MiB (100%)</td></tr>
+                </table>
+            </code>
+        </div>
+    
+        <div>
+            <h3>Output</h3>
+            <audio controls>
+                <source src="./output.webm" type="audio/webm">
+            </audio>
+    
+            <code>
+                <table>
+                    <tr><td colspan="2">General</td></tr>
+                    <tr><td>Complete name</td><td>output.webm</td></tr>
+                    <tr><td>Format</td><td>WebM</td></tr>
+                    <tr><td>Format version</td><td>Version 2</td></tr>
+                    <tr><td>File size</td><td>492 KiB</td></tr>
+                    <tr><td>Duration</td><td>37 s 89 ms</td></tr>
+                    <tr><td>Overall bit rate mode</td><td>Variable</td></tr>
+                    <tr><td>Overall bit rate</td><td>109 kb/s</td></tr>
+                    <tr><td>Writing application</td><td>Lavf57.83.100</td></tr>
+                    <tr><td>Writing library</td><td>Lavf57.83.100</td></tr>
+    
+                    <tr><td colspan="2">Audio</td></tr>
+                    <tr><td>ID</td><td>1</td></tr>
+                    <tr><td>Format</td><td>Vorbis</td></tr>
+                    <tr><td>Format settings, Floor</td><td>1</td></tr>
+                    <tr><td>Codec ID</td><td>A_VORBIS</td></tr>
+                    <tr><td>Duration</td><td>37 s 89 ms</td></tr>
+                    <tr><td>Bit rate mode</td><td>Variable</td></tr>
+                    <tr><td>Bit rate</td><td>112 kb/s</td></tr>
+                    <tr><td>Channel(s)</td><td>2 channels</td></tr>
+                    <tr><td>Sampling rate</td><td>44.1 kHz</td></tr>
+                    <tr><td>Compression mode</td><td>Lossy</td></tr>
+                    <tr><td>Stream size</td><td>507 KiB</td></tr>
+                    <tr><td>Writing application</td><td>Lavc57.107.100</td></tr>
+                    <tr><td>Writing library</td><td>libVorbis () (20150105 ())</td></tr>
+                    <tr><td>Default</td><td>Yes</td></tr>
+                    <tr><td>Forced</td><td>No</td></tr>
+                </table>
+            </code>
+        </div>
+    </div>
 
-        <script src="./jquery-3.4.1.min.js"></script>
-        <script src="./jquery-ui.min.js"></script>
-        <script src="./dragndrop.table.columns.min.js"></script>
-        <script>
-            let activeElement = null;
+    <div style="margin-top: 10px;">
+        Converted with: <code>ffmpeg -i wav_1411kbps.wav -codec:a libvorbis output.webm</code>
+    </div>
 
-            function uuidv4() {
-                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                    return v.toString(16);
-                });
-            }
+    
+</body>
 
-            $(function() {
-                setInterval(function() {
-                    if(activeElement != null) {
-                        let time = $("#" + activeElement)[0].currentTime;
-                        //console.log(time);
-                        $(".audio-element").each(function() {
-                            if($(this).attr("id") == activeElement) {
-                                return;
-                            }
-
-                            $(this)[0].currentTime = time;
-                        });
-                    }
-                }, 10);
-
-                $(".audio-col").each(function() {
-                    let audioFile = $(this).data("src");
-
-                    console.log("Loading " + audioFile);
-
-                    $(this).html(
-                        $("<audio></audio>").html(
-                            $("<source></source>").attr("src", audioFile)
-                        ).attr("controls", "1")
-                        .addClass("audio-element")
-                        .on("mouseenter", function() {
-                            $(this)[0].play();
-                            activeElement = $(this).attr("id");
-                            console.log("Active player: " + activeElement);
-                        }).on("mouseleave", function() {
-                            $(this)[0].pause();
-                            activeElement = null;
-                        })
-                        .attr("id", uuidv4())
-                    );
-                });
-
-                $('.table').dragableColumns({
-                    drag: true,
-                    dragClass: 'drag',
-                    overClass: 'over',
-                    movedContainerSelector: '.dnd-moved'
-                });
-            });
-        </script>
-    </head>
-
-    <body>
-        <table class="table">
-            <thead>
-                <tr class="dnd-moved">
-                    <th></th>
-                    <th>wav</th>
-                    <th>ogg - quality 1</th>
-                    <th>ogg - quality 5</th>
-                    <th>ogg - quality 10</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr class="dnd-moved">
-                    <th>256kbps</th>
-                    <td class="audio-col" data-src="wav_256kbps.wav"></td>
-                    <td class="audio-col" data-src="ogg_256kbps_q1.ogg"></td>
-                    <td class="audio-col" data-src="ogg_256kbps_q5.ogg"></td>
-                    <td class="audio-col" data-src="ogg_256kbps_q10.ogg"></td>
-                </tr>
-
-                <tr class="dnd-moved">
-                    <th>512kbps</th>
-                    <td class="audio-col" data-src="wav_512kbps.wav"></td>
-                    <td class="audio-col" data-src="ogg_512kbps_q1.ogg"></td>
-                    <td class="audio-col" data-src="ogg_512kbps_q5.ogg"></td>
-                    <td class="audio-col" data-src="ogg_512kbps_q10.ogg"></td>
-                </tr>
-
-                <tr class="dnd-moved">
-                    <th>1024kbps</th>
-                    <td class="audio-col" data-src="wav_1024kbps.wav"></td>
-                    <td class="audio-col" data-src="ogg_1024kbps_q1.ogg"></td>
-                    <td class="audio-col" data-src="ogg_1024kbps_q5.ogg"></td>
-                    <td class="audio-col" data-src="ogg_1024kbps_q10.ogg"></td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
 </html>
