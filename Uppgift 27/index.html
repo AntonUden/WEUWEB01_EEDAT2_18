@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script src="./howler.min.js"></script>
+
+    <script>
+        $(function () {
+            var originalSound = new Howl({
+                src: ["./original-swingy-edible-droplets.mp3"],
+                loop: true
+            });
+
+            var editedSound = new Howl({
+                src: ["./edited-swingy-edible-droplets.mp3"],
+                loop: true
+            });
+
+            $("#btn_playOriginal").on("click", function () {
+                stopAll();
+                originalSound.play();
+            });
+
+            $("#btn_playEdited").on("click", function () {
+                stopAll();
+                editedSound.play();
+            });
+
+            $("#btn_playBoth").on("click", function () {
+                stopAll();
+                originalSound.play();
+                editedSound.play();
+            });
+            $("#btn_stop").on("click", function () {
+                stopAll();
+            });
+
+            function stopAll() {
+                originalSound.stop();
+                editedSound.stop();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn_playOriginal">Play original</button>&nbsp;
+    <button id="btn_playEdited">Play edited</button>&nbsp;
+    <button id="btn_playBoth">Play both</button>&nbsp;
+    <button id="btn_stop">Stop</button>&nbsp;
+</body>
+
+</html>
